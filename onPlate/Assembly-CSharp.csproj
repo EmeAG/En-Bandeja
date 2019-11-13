@@ -64,30 +64,32 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bandeja.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\Obstaculo.cs" />
+    <Compile Include="Assets\Scripts\RespawnObstaculos.cs" />
     <Compile Include="Assets\Scripts\RotateAround.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -272,14 +274,17 @@
     <Reference Include="nunit.framework">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/victo/OneDrive/Documents/GitHub/En-Bandeja/onPlate/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
