@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446cc27a56c17d349874000bb992c7a4, type: 3}
+  m_Name: mySpawnManager
+  m_EditorClassIdentifier: 
+  worldSpeed: 30
+  timeToSpawn: 10
+  playerRef: {fileID: 8055304146177113334, guid: 300fef54efb0d694297d929c276bfcd7,
+    type: 3}
+  spawnObjects: 1

@@ -2,23 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RespawnObstaculos : MonoBehaviour
 {
+    //Self reference
+    static private RespawnObstaculos respawnObstaculos;
+    static public RespawnObstaculos Instance_
+    {
+        get
+        {
+            Debug.Log("instance de respawn es: " + respawnObstaculos);
+            return respawnObstaculos;
+        }
+        set
+        {
+            if (respawnObstaculos == null)
+                respawnObstaculos = value;
+        }
+    }
+
     [SerializeField] Obstaculo[] obstaculos;
     [SerializeField] float tamPasillo, vel;
     float posAnt;
     List<Obstaculo> obsSig;
-
+   
     // Start is called before the first frame update
     void Start()
     {
+        respawnObstaculos = this;
         for (int i = 0; i < obstaculos.Length; i++)
         {
             obstaculos[i].setVel(vel);
         }
         posAnt = tamPasillo / 2;
 
-        StartCoroutine(createFilaCoroutine());
     }
 
     // Update is called once per frame
@@ -27,27 +44,16 @@ public class RespawnObstaculos : MonoBehaviour
 
     }
 
-    public IEnumerator createFilaCoroutine()
+    public IEnumerator startSpawn(float eachTime)
     {
-        float timer = 0.0f;
-        float timeToSpawn = 10.0f;
-        
-        do
+        while (MyGameManager.Instance_.mySpawnManager.spawnObjects)
         {
-            timer += Time.deltaTime;
-            if (timer >= timeToSpawn)
-            {
-                crearFila(0, -4.5f, 4.5f);
-                timer -= timeToSpawn;
-            }
-    
-            yield return null;
-        } while (true);
-
+            yield return new WaitForSecondsRealtime(eachTime);
+            crearFila(0, -4.5f, 4.5f);
+        }
     }
 
-
-    List<Obstaculo> crearFila(float posHueco,float posIn, float posFin) 
+    public List<Obstaculo> crearFila(float posHueco, float posIn, float posFin) 
     {
         List<Obstaculo> obs = new List<Obstaculo>();
         Obstaculo o;

@@ -62,8 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ScriptableObjects\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\Bandeja.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\MyGameManager.cs" />
     <Compile Include="Assets\Scripts\Obstaculo.cs" />
     <Compile Include="Assets\Scripts\RespawnObstaculos.cs" />
     <Compile Include="Assets\Scripts\RotateAround.cs" />

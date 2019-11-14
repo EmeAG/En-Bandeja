@@ -11,7 +11,7 @@ public class Obstaculo : MonoBehaviour
     void Start()
     {
         posVel = new Vector3(0.0f, 0.0f, 0.0f);
-        ancho = transform.GetComponent<MeshFilter>().mesh.bounds.size.x;
+        ancho = transform.GetComponent<Collider>().bounds.size.x;
     }
 
     // Update is called once per frame
