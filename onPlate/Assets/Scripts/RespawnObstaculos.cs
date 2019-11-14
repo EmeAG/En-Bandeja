@@ -16,11 +16,9 @@ public class RespawnObstaculos : MonoBehaviour
         {
             obstaculos[i].setVel(vel);
         }
-        obsSig = new List<Obstaculo>();
         posAnt = tamPasillo / 2;
 
-        obsSig = new List<Obstaculo>();
-        obsSig = crearFila(0, -4.5f, 4.5f);
+        StartCoroutine(createFilaCoroutine());
     }
 
     // Update is called once per frame
@@ -28,6 +26,26 @@ public class RespawnObstaculos : MonoBehaviour
     {
 
     }
+
+    public IEnumerator createFilaCoroutine()
+    {
+        float timer = 0.0f;
+        float timeToSpawn = 10.0f;
+        
+        do
+        {
+            timer += Time.deltaTime;
+            if (timer >= timeToSpawn)
+            {
+                crearFila(0, -4.5f, 4.5f);
+                timer -= timeToSpawn;
+            }
+    
+            yield return null;
+        } while (true);
+
+    }
+
 
     List<Obstaculo> crearFila(float posHueco,float posIn, float posFin) 
     {
