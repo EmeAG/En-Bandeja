@@ -64,9 +64,13 @@
   <ItemGroup>
     <Compile Include="Assets\ScriptableObjects\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\Bandeja.cs" />
+    <Compile Include="Assets\Scripts\GestionGameplay.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\MyGameManager.cs" />
-    <Compile Include="Assets\Scripts\Obstaculo.cs" />
+    <Compile Include="Assets\Scripts\Obstaculos\Obstaculo.cs" />
+    <Compile Include="Assets\Scripts\Obstaculos\SpawnObstaculos.cs" />
+    <Compile Include="Assets\Scripts\Pasillo\gestionPasillos.cs" />
+    <Compile Include="Assets\Scripts\Pasillo\Pasillo.cs" />
     <Compile Include="Assets\Scripts\RespawnObstaculos.cs" />
     <Compile Include="Assets\Scripts\RotateAround.cs" />
     <Compile Include="Assets\Scripts\Waiter.cs" />

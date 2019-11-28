@@ -30,22 +30,29 @@ public class Waiter : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            if (dash)
+            if (pos.x <= -3.5f)
             {
-                pos.x += speedDash*Time.deltaTime;
-                foreach (Rigidbody r in vasos)
-                {
-                    r.AddForce(new Vector3(-forceDash, 0, 0));
-                }
+                pos.x = -3.5f;
             }
             else
             {
-                pos.x += speedMove*Time.deltaTime;
-                foreach(Rigidbody r in vasos)
+                if (dash)
                 {
-                    r.AddForce(new Vector3(-forceMove, 0, 0));
+                    pos.x -= speedDash * Time.deltaTime;
+                    foreach (Rigidbody r in vasos)
+                    {
+                        r.AddForce(new Vector3(+forceDash, 0, 0));
+                    }
                 }
-            }
+                else
+                {
+                    pos.x -= speedMove * Time.deltaTime;
+                    foreach (Rigidbody r in vasos)
+                    {
+                        r.AddForce(new Vector3(+forceMove, 0, 0));
+                    }
+                }
+            }           
             transform.position = pos;
         }
         else if (Input.GetKeyUp(KeyCode.A))
@@ -59,20 +66,27 @@ public class Waiter : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            if (dash)
+            if (pos.x >= 3.5f)
             {
-                pos.x -= speedDash * Time.deltaTime;
-                foreach (Rigidbody r in vasos)
-                {
-                    r.AddForce(new Vector3(forceDash, 0, 0));
-                }
+                pos.x = 3.5f;
             }
             else
             {
-                pos.x -= speedMove * Time.deltaTime;
-                foreach (Rigidbody r in vasos)
+                if (dash)
                 {
-                    r.AddForce(new Vector3(forceMove, 0, 0));
+                    pos.x += speedDash * Time.deltaTime;
+                    foreach (Rigidbody r in vasos)
+                    {
+                        r.AddForce(new Vector3(-forceDash, 0, 0));
+                    }
+                }
+                else
+                {
+                    pos.x += speedMove * Time.deltaTime;
+                    foreach (Rigidbody r in vasos)
+                    {
+                        r.AddForce(new Vector3(-forceMove, 0, 0));
+                    }
                 }
             }
             transform.position = pos;

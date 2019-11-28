@@ -49,7 +49,8 @@ public class RespawnObstaculos : MonoBehaviour
         while (MyGameManager.Instance_.mySpawnManager.spawnObjects)
         {
             yield return new WaitForSecondsRealtime(eachTime);
-            crearFila(0, -4.5f, 4.5f);
+            int hueco = (int)Random.Range(0.0f, tamPasillo);
+            crearFila(hueco, -tamPasillo/2.0f, tamPasillo/2.0f);
         }
     }
 

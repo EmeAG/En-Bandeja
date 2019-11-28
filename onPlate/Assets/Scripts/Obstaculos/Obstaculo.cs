@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Obstaculo : MonoBehaviour
 {
-    [SerializeField] float ancho;
-    float vel;
-    Vector3 posVel;
+    [SerializeField] float alto, ancho;
+
+    public Vector3 posVel = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
-        posVel = new Vector3(0.0f, 0.0f, 0.0f);
-        ancho = transform.GetComponent<Collider>().bounds.size.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += posVel;
+        transform.position -= posVel*Time.deltaTime;
     }
 
     public float getAncho()
@@ -28,5 +26,10 @@ public class Obstaculo : MonoBehaviour
     public void setVel(float v)
     {
         posVel = new Vector3(0.0f, 0.0f, v);
+    }
+
+    public float getAlto()
+    {
+        return alto;
     }
 }
