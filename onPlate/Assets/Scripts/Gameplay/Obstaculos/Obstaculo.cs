@@ -10,12 +10,24 @@ public class Obstaculo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position -= posVel*Time.deltaTime;
+        if (gameObject.name.Contains("(Clone)"))
+        {
+            if (!gameObject.transform.Find("/GestionGameplay").GetComponent<GestionGameplay>().getPaused())
+            {
+                transform.position -= posVel * Time.deltaTime;
+                if (transform.position.z < -10f)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+        
     }
 
     public float getAncho()

@@ -37,17 +37,21 @@ public class gestionPasillos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < pasillos.Length; i++)
+        if (!gameObject.transform.Find("/GestionGameplay").GetComponent<GestionGameplay>().getPaused())
         {
-            Vector3 pos = pasillos[i].transform.position;
-            pos.z -= vel * Time.deltaTime;
-            pasillos[i].transform.position=pos;
-            if (pasillos[i].transform.position.z <= -espacio/2.0f)
+            for (int i = 0; i < pasillos.Length; i++)
             {
-                colocarDetras(i);
+                Vector3 pos = pasillos[i].transform.position;
+                pos.z -= vel * Time.deltaTime;
+                pasillos[i].transform.position = pos;
+                if (pasillos[i].transform.position.z <= -espacio / 2.0f)
+                {
+                    colocarDetras(i);
+                }
             }
-        }
+        }           
     }
+
     void colocarDetras(int indx)
     {
         int aux = indx - 1;

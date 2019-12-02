@@ -20,10 +20,22 @@ public class Bandeja : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        auxAngle = transform.eulerAngles.y;
-        posX = Input.mousePosition.x;
-        transform.Rotate(new Vector3(0.0f, calculoAngulo(posAnt, posX), 0.0f));
-        posAnt = posX;
+        if (!gameObject.transform.Find("/GestionGameplay").GetComponent<GestionGameplay>().getPaused())
+        {
+            if (posAnt < 0)
+            {
+                posAnt = Input.mousePosition.x;
+            }
+            auxAngle = transform.eulerAngles.y;
+            posX = Input.mousePosition.x;
+            transform.Rotate(new Vector3(0.0f, calculoAngulo(posAnt, posX), 0.0f));
+            posAnt = posX;
+        }
+        else
+        {
+            posAnt = -1;
+        }
+            
     }
 
     float calculoAngulo(float a, float b)

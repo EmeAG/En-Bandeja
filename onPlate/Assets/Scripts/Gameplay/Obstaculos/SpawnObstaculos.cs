@@ -7,30 +7,34 @@ public class SpawnObstaculos : MonoBehaviour
     [SerializeField] Obstaculo[] obstaculos;
     [SerializeField] int tamPasillos;
     [SerializeField] float vel;
-    float offset;
-    List<Obstaculo> obsSig;
+    float offset,timeStart, auxTime, timeSpawn;
     float posObstaculos, posibilidadHueco;
     // Start is called before the first frame update
     void Start()
     {
+        timeSpawn = 3.5f;
+        timeStart = -1;
+        auxTime = -1;
         posibilidadHueco = 50.0f;
-        StartCoroutine(Spawner());
         posObstaculos = 50;
         offset = 0.2f;
         for(int i = 0; i < obstaculos.Length; i++)
         {
             obstaculos[i].setVel(vel);
         }
-        
+
+        crearFila((int)(Random.Range(0.0f, tamPasillos) - 3.5f), -3.5f, 3.5f, 18.3191f);
+        crearFila((int)(Random.Range(0.0f, tamPasillos) - 3.5f), -3.5f, 3.5f, 28.85141f);
+        crearFila((int)(Random.Range(0.0f, tamPasillos) - 3.5f), -3.5f, 3.5f, 39.36765f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Spawner();
     }
 
-    public List<Obstaculo> crearFila(float posHueco, float posIn, float posFin)
+    public List<Obstaculo> crearFila(float posHueco, float posIn, float posFin, float posObstaculos)
     {
         List<Obstaculo> obs = new List<Obstaculo>();
         Obstaculo o;
@@ -57,7 +61,8 @@ public class SpawnObstaculos : MonoBehaviour
             auxIndx = elegirObstaculo(auxPos, posFin);
             if (auxIndx >= 0)
             {
-                obs.Add(Instantiate(obstaculos[auxIndx], new Vector3(auxPos + (obstaculos[auxIndx].getAncho() / 2.0f), obstaculos[auxIndx].getAlto(), posObstaculos),obstaculos[auxIndx].transform.rotation));
+                o = Instantiate(obstaculos[auxIndx], new Vector3(auxPos + (obstaculos[auxIndx].getAncho() / 2.0f), obstaculos[auxIndx].getAlto(), posObstaculos), obstaculos[auxIndx].transform.rotation);
+                obs.Add(o);
                 auxPos += obstaculos[auxIndx].getAncho()+offset;
             }
             else
@@ -95,12 +100,40 @@ public class SpawnObstaculos : MonoBehaviour
         }
     }
 
-    IEnumerator Spawner()
+    void Spawner()
     {
-        while (true)
+        if (!gameObject.transform.Find("/GestionGameplay").GetComponent<GestionGameplay>().getPaused())
+        {
+            if (timeStart ==-1)
+            {
+                timeStart = Time.time;
+            }
+            else if (timeStart == -2)
+            {
+                timeStart = Time.time - auxTime;
+            }
+            if (Time.time - timeStart >= timeSpawn)
+            {
+                crearFila((int)(Random.Range(0.0f, tamPasillos) - 3.5f), -3.5f, 3.5f, posObstaculos);
+                timeStart = Time.time;
+            }
+        }
+        else
+        {
+            if (timeStart >= 0)
+            {
+                auxTime = Time.time - timeStart;
+                timeStart = -2;
+            }
+        }
+    }
+
+    IEnumerator Spawner2()
+    {
+        while (!gameObject.transform.Find("/GestionGameplay").GetComponent<GestionGameplay>().getPaused())
         {
             
-            crearFila((int)(Random.Range(0.0f,tamPasillos)-3.5f), -3.5f, 3.5f);
+            crearFila((int)(Random.Range(0.0f,tamPasillos)-3.5f), -3.5f, 3.5f, posObstaculos);
             yield return new WaitForSeconds(3.5f);
         }          
     }

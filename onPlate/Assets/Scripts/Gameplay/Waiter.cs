@@ -10,11 +10,13 @@ public class Waiter : MonoBehaviour
     float timeDelay = 0.3f;
     bool dash;
     Rigidbody[] vasos;
+    int numVasos;
     
     // Start is called before the first frame update
     void Start()
     {
         vasos= GetComponentsInChildren<Rigidbody>();
+        numVasos = vasos.Length;
         dash = false;
         pos = transform.position;
     }
@@ -22,9 +24,21 @@ public class Waiter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkDoublePress();
-        gestionMovement();
+        if (!gameObject.transform.Find("/GestionGameplay").GetComponent<GestionGameplay>().getPaused())
+        {
+            checkDoublePress();
+            gestionMovement();
+            if (numVasos == 0)
+            {
+                GetComponentInParent<GestionGameplay>().FinGamePlay();
+            }
+        }
     }      
+
+    public void updateVasos()
+    {
+        numVasos--;
+    }
     
     void gestionMovement()
     {
@@ -41,7 +55,8 @@ public class Waiter : MonoBehaviour
                     pos.x -= speedDash * Time.deltaTime;
                     foreach (Rigidbody r in vasos)
                     {
-                        r.AddForce(new Vector3(+forceDash, 0, 0));
+                        if(r!=null)
+                            r.AddForce(new Vector3(+forceDash, 0, 0));
                     }
                 }
                 else
@@ -49,7 +64,8 @@ public class Waiter : MonoBehaviour
                     pos.x -= speedMove * Time.deltaTime;
                     foreach (Rigidbody r in vasos)
                     {
-                        r.AddForce(new Vector3(+forceMove, 0, 0));
+                        if(r!=null)
+                            r.AddForce(new Vector3(+forceMove, 0, 0));
                     }
                 }
             }           
@@ -77,7 +93,8 @@ public class Waiter : MonoBehaviour
                     pos.x += speedDash * Time.deltaTime;
                     foreach (Rigidbody r in vasos)
                     {
-                        r.AddForce(new Vector3(-forceDash, 0, 0));
+                        if(r!=null)
+                            r.AddForce(new Vector3(-forceDash, 0, 0));
                     }
                 }
                 else
@@ -85,7 +102,8 @@ public class Waiter : MonoBehaviour
                     pos.x += speedMove * Time.deltaTime;
                     foreach (Rigidbody r in vasos)
                     {
-                        r.AddForce(new Vector3(-forceMove, 0, 0));
+                        if(r!=null)
+                            r.AddForce(new Vector3(-forceMove, 0, 0));
                     }
                 }
             }

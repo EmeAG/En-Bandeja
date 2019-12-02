@@ -63,17 +63,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ScriptableObjects\SpawnManager.cs" />
-    <Compile Include="Assets\Scripts\Bandeja.cs" />
-    <Compile Include="Assets\Scripts\GestionGameplay.cs" />
-    <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\MyGameManager.cs" />
-    <Compile Include="Assets\Scripts\Obstaculos\Obstaculo.cs" />
-    <Compile Include="Assets\Scripts\Obstaculos\SpawnObstaculos.cs" />
-    <Compile Include="Assets\Scripts\Pasillo\gestionPasillos.cs" />
-    <Compile Include="Assets\Scripts\Pasillo\Pasillo.cs" />
-    <Compile Include="Assets\Scripts\RespawnObstaculos.cs" />
-    <Compile Include="Assets\Scripts\RotateAround.cs" />
-    <Compile Include="Assets\Scripts\Waiter.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Bandeja.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GestionGameplay.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Movement.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\MyGameManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Obstaculos\Obstaculo.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Obstaculos\SpawnObstaculos.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Pasillo\gestionPasillos.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Pasillo\Pasillo.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Pause\ButtonHandler_Pause.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Pause\Continuar.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\RespawnObstaculos.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\RotateAround.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Vaso.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Waiter.cs" />
+    <Compile Include="Assets\Scripts\Menu\ButtonHandler.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/DaniM/OneDrive/Documentos/GitHub/En-Bandeja/onPlate/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
