@@ -7,7 +7,7 @@ public class SpawnObstaculos : MonoBehaviour
     [SerializeField] Obstaculo[] obstaculos;
     [SerializeField] int tamPasillos;
     [SerializeField] float vel;
-    float offset,timeStart, auxTime, timeSpawn;
+    float timeStart, auxTime, timeSpawn;
     float posObstaculos, posibilidadHueco;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,6 @@ public class SpawnObstaculos : MonoBehaviour
         auxTime = -1;
         posibilidadHueco = 50.0f;
         posObstaculos = 50;
-        offset = 0.2f;
         for(int i = 0; i < obstaculos.Length; i++)
         {
             obstaculos[i].setVel(vel);
@@ -40,14 +39,14 @@ public class SpawnObstaculos : MonoBehaviour
         Obstaculo o;
         float auxPos = posIn;
         int auxIndx = -1;
-        while (auxPos <= posHueco - 0.7f)
+        while (auxPos <= posHueco - 0.5f)
         {
-            auxIndx = elegirObstaculo(auxPos, posHueco - 0.7f);
+            auxIndx = elegirObstaculo(auxPos, posHueco - 0.5f);
             if (auxIndx >= 0)
             {
                 o = Instantiate(obstaculos[auxIndx], new Vector3(auxPos + (obstaculos[auxIndx].getAncho() / 2.0f), obstaculos[auxIndx].getAlto(), posObstaculos), obstaculos[auxIndx].transform.rotation);
                 obs.Add(o);
-                auxPos += obstaculos[auxIndx].getAncho()+offset;
+                auxPos += obstaculos[auxIndx].getAncho();
             }
             else
             {
@@ -55,7 +54,7 @@ public class SpawnObstaculos : MonoBehaviour
             }
 
         }
-        auxPos = posHueco + 0.7f;
+        auxPos = posHueco + 0.5f;
         while (auxPos <= posFin)
         {
             auxIndx = elegirObstaculo(auxPos, posFin);
@@ -63,7 +62,7 @@ public class SpawnObstaculos : MonoBehaviour
             {
                 o = Instantiate(obstaculos[auxIndx], new Vector3(auxPos + (obstaculos[auxIndx].getAncho() / 2.0f), obstaculos[auxIndx].getAlto(), posObstaculos), obstaculos[auxIndx].transform.rotation);
                 obs.Add(o);
-                auxPos += obstaculos[auxIndx].getAncho()+offset;
+                auxPos += obstaculos[auxIndx].getAncho();
             }
             else
             {
